@@ -1,0 +1,56 @@
+<!-- The toolbar of our app -->
+<mat-toolbar class="top-toolbar">
+  <div class="time">{{ time | date : 'hh:mm' }}</div>
+  <div class="icons">
+    <mat-icon class="network_wifi">network_wifi</mat-icon>
+    <mat-icon class="network_cell">network_cell</mat-icon>
+    <mat-icon  class="battery_full">battery_full</mat-icon>
+  </div>
+  
+ </mat-toolbar>
+<mat-toolbar class="emp-list">
+ <span>Employee List</span>
+</mat-toolbar>
+
+<!-- The body of our app -->
+<div class="main-body">
+
+  <div *ngIf="noRecords">
+    <img src="../assets/images/No_records.png" alt="empty page" width="70%" class="norecord-img">
+    <p class="noRecords-text"> No Employee Records Found</p>
+  </div>
+  <div *ngIf="!noRecords">
+    <div class="sections-emp">
+      <mat-toolbar>Current employees</mat-toolbar>
+    </div>
+    <div class="section">
+      <section class="sub-section-emp" *ngFor="let employee of currentEmployees">
+        <div class="edt-emp" (click)="editEmployee(employee)">
+          <h2>{{employee.name}}</h2>
+          <p>{{employee.position}}</p>
+          <p>From {{employee.fromDate}}</p>
+        </div>
+        <div class="del-emp">
+          <mat-icon (click)="deleteEmployee(employee)">delete</mat-icon>
+        </div>
+      </section>
+    </div>
+    <div class="sections-emp">
+      <mat-toolbar>Previous employees</mat-toolbar>
+    </div>
+    <div class="section">
+      <section class="sub-section-emp" *ngFor="let employee of previousEmployees">
+        <div class="edt-emp" (click)="editEmployee(employee)">
+          <h2>{{employee.name}}</h2>
+          <p>{{employee.position}}</p>
+          <p>{{employee.fromDate}} - {{employee.toDate}}</p>
+        </div>
+        <div class="del-emp">
+          <mat-icon (click)="deleteEmployee(employee)">delete</mat-icon>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <mat-icon class="plus-icon" (click)="openAddEditEmployeeDialog()">add_box</mat-icon>
+</div>

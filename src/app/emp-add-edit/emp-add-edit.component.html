@@ -1,0 +1,79 @@
+<mat-toolbar class="top-toolbar">
+  <div class="time">{{ time | date : 'hh:mm' }}</div>
+  <div class="icons">
+    <mat-icon class="network_wifi">network_wifi</mat-icon>
+    <mat-icon class="network_cell">network_cell</mat-icon>
+    <mat-icon  class="battery_full">battery_full</mat-icon>
+  </div>
+</mat-toolbar>
+<mat-toolbar class="add-emp">
+    <span>{{data ? 'Edit': 'Add'}} Employee Details</span>
+</mat-toolbar>
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Employee Name</mat-label>
+                <mat-icon matPrefix class="my-icon">perm_identity</mat-icon>
+                <input matInput type="text" formControlName="name">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Employee Position</mat-label>
+                <mat-icon matPrefix class="my-icon">work_outline</mat-icon>
+                <mat-select formControlName="position">
+                    <mat-option *ngFor="let position of positions" [value]="position">
+                        {{position}}
+                      </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="date-custom" appearance="outline">
+                <mat-label>Start Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="fromDate">
+                <mat-datepicker-toggle [for]="picker" id="picker1"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #picker>
+                    <mat-datepicker-actions>
+                      <!-- <div class="wd-100">
+                        <button mat-raised-button matDatepickerApply class="cal-day">No date</button>
+                        <button mat-raised-button matDatepickerApply class="cal-day">Today</button>
+                      </div> -->
+                      
+                      <!-- <div class="dt-range">
+                        <mat-icon class="dt-rng-bg" >date_range</mat-icon>
+                        No date
+                      </div> -->
+                      <button mat-button matDatepickerCancel class="dt-cancel-btn">Cancel</button>
+                      <button mat-raised-button matDatepickerApply class="dt-save-btn">Save</button>
+                    </mat-datepicker-actions>
+                </mat-datepicker>
+              </mat-form-field>
+
+              <span class="arrow">
+                <mat-icon>arrow_right_alt</mat-icon>
+              </span>
+              
+              <mat-form-field class="date-custom" appearance="outline">
+                <mat-label>End Date</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="toDate">
+                <mat-datepicker-toggle  id="picker2" [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #picker2>
+                    <mat-datepicker-actions>
+                      <button mat-button matDatepickerCancel class="dt-cancel-btn">Cancel</button>
+                      <button mat-raised-button matDatepickerApply class="dt-save-btn">Save</button>
+                    </mat-datepicker-actions>
+                </mat-datepicker>
+              </mat-form-field>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div mat-dialog-actions class="action-btns">
+        <button class="cancel-btn" type="button" [mat-dialog-close]="false">Cancel</button>
+        <button   class="save-btn" mat-raised-button  type="submit">{{data ? 'Update': 'Save'}}</button>
+    </div>
+</form>

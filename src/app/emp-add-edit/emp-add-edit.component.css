@@ -1,0 +1,151 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.wd-100{
+    width: 100%;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+mat-label {
+    margin-left: 25px !important;
+}
+
+mat-hint {
+    margin: 5px;
+}
+
+mat-divider{
+    position: relative;
+    top: 415px;
+}
+
+.top-toolbar{
+    background-color:#0E8AD7;
+    justify-content: space-between;
+}
+  
+.add-emp{
+    background-color: #1DA1F2;
+    color: #fff;
+}
+
+.time{
+    color:#000;
+    font-size:16px;
+    font-weight:500;
+}
+
+.icons{
+    float:right;
+}
+  
+
+.network_wifi{
+    color:#000;
+    font-size: 16px;
+    margin-top:10px;
+}
+  
+.network_cell{
+    color:#000;
+    font-size: 16px;
+    margin-top:10px;
+    margin-left:-5px;
+}
+  
+.battery_full{
+    color:#000;
+    font-size: 16px;
+    margin-top:10px;
+    margin-left:-5px;
+}
+
+.action-btns {
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
+    margin: 0;
+}
+
+.cal-day{
+    position: absolute;
+    top:5px; 
+    left: 10px;
+    width:46%;
+    background-color:transparent;
+    color: #1DA1F2; 
+    border: none;
+}
+
+.dt-range{
+    position:absolute;
+    left: 20px;
+}
+
+.dt-rng-bg{
+    color: #1DA1F2;
+}
+
+.dt-cancel-btn{
+    background-color:transparent;
+    color: #1DA1F2 !important; 
+    border: none;
+    cursor: pointer !important;
+}
+
+.dt-save-btn{
+ background-color: #1DA1F2 !important;
+ color: #fff !important;
+ cursor: pointer !important;
+}
+
+.cancel-btn{
+    background-color:transparent;
+    color: #1DA1F2 !important; 
+    cursor: pointer !important;
+    border: none;
+}
+
+.save-btn{
+    margin: 10px;
+    background-color: #1DA1F2 !important;
+    cursor: pointer !important;
+    color: #fff !important;
+}
+
+.action-btns button {
+    padding: 20px;
+}
+.mat-datepicker-toggle, .mat-mdc-icon-button {
+    position: absolute;
+    left: -15px;
+    top: 5px;
+    color: #1DA1F2;
+}
+.date-custom {
+    height: 56px;
+}
+.arrow {
+    margin: auto;
+}
+.my-icon {
+    color: #1DA1F2;
+}
+.date-custom {
+    .mdc-text-field__input {
+        padding-left: 30px !important;
+    }
+    .mdc-floating-label {
+        padding-left: 25px !important;
+    }
+}
+.mdc-dialog__content {
+    margin-top: 15px;
+}
